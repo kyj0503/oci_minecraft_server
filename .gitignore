@@ -1,0 +1,37 @@
+# --- 무시할 파일들 ---
+# 로그 및 캐시
+*/logs/
+*/cache/
+*/crash-reports/
+*/debug/
+
+# 임시 파일 및 락 파일
+*.lock
+*.log
+*.log.gz
+
+# 자바 실행 파일 (이미지는 도커가 관리하므로 필요 없음)
+*.jar
+
+# 다이너맵(Dynmap)을 쓴다면 타일 이미지 제외 (용량 폭발 방지)
+*/web/tiles/
+
+# --- 필수 백업 대상 (예외 처리) ---
+# 설정 파일들은 무조건 백업
+!server.properties
+!bukkit.yml
+!spigot.yml
+!paper.yml
+!ops.json
+!whitelist.json
+!banned-*.json
+
+# 맵 데이터 (오버월드, 지옥, 엔더)
+!world/
+!world_nether/
+!world_the_end/
+
+# 플러그인 임시 파일 및 바이너리 무시
+*/tmp/
+*.tmp
+*.so

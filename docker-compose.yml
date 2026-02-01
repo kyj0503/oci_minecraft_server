@@ -1,0 +1,15 @@
+services:
+  mc:
+    image: itzg/minecraft-server
+    container_name: minecraft_server
+    ports:
+      - "25565:25565"
+    environment:
+      - EULA=TRUE
+      - VERSION=LATEST      # 특정 버전을 원하면 "1.20.4" 처럼 명시
+      - TYPE=PAPER          # PAPER가 바닐라보다 성능(TPS)이 훨씬 좋습니다 (추천)
+      - MEMORY=8G           # OCI 무료 인스턴스(24GB)라면 넉넉하게 8~12G 할당 추천
+      - USE_AIKAR_FLAGS=true # 성능 최적화 옵션 자동 적용
+    volumes:
+      - ./data:/data        # 맵과 데이터가 저장될 경로
+    restart: unless-stopped
